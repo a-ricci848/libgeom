@@ -9,3 +9,11 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|(Apple)?Clang")
 endif()
 
 add_library(geom SHARED vector.cc matrix2x2.cc matrix3x3.cc bspline.cc trimesh.cc)
+
+install(TARGETS geom
+    EXPORT geomTargets
+    ARCHIVE DESTINATION lib
+    LIBRARY DESTINATION lib
+    RUNTIME DESTINATION bin
+    INCLUDES DESTINATION include
+)
